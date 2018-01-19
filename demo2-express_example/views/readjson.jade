@@ -1,0 +1,42 @@
+extends layout
+
+block content
+	h1= title
+	p Welcome to #{title}
+	form(method='POST' action='/readjson/data/regist')
+		div.form-group
+			label(for='name') ID :
+			input#id.form-control(type='text', placeholder='ID' name='id')
+			label(for='name') Name :
+			input#name.form-control(type='text', placeholder='Name' name='name')
+			label(for='name') Age :
+			input#age.form-control(type='text', placeholder='Age' name='age')
+			button.btn.btn-primary(type='submit') Add new
+	<br>
+	div(id="litsarea" class="litsarea") List Area
+	div(id="maintb" class="maintb")
+		table
+			thead
+				th No
+				th ID
+				th Name
+				th Age
+				th(colspan = '2') Options
+			if users
+				each user in users
+					if user
+						tr
+							td #{user.id}
+							td #{user.id}
+							td #{user.name}
+							td #{user.age}
+							td 
+								a(href="/readjson/#{user.id}") Edit
+							td 
+								a(href="/readjson/#{user.id - 1}") Delete
+	<br>
+	div(id="homerefer" class="homerefer")
+		a(href="/") Back to Home page.
+	div(id="homerefer" class="homerefer")
+		a(href="/readjson/data/revert") Revert Json page.
+	div(id="footer" class="footer") Footer Area

@@ -1,0 +1,27 @@
+extends layout
+
+block content
+	h1= title
+	p Welcome to #{title}
+	div List Area
+	table
+		thead
+			th No
+			th ID
+			th Name
+			th Age
+			th(colspan = '2') Options
+		if users
+			each user in users
+				tr
+					td #{user.id - 1}
+					td #{user.id}
+					td #{user.name}
+					td #{user.age}
+					td 
+						a(href="/users/#{user.id}") Edit
+					td 
+						a(href="/users/#{user.id}") Delete
+	div
+		a(href="/") Back to Home page.
+	div Footer Area

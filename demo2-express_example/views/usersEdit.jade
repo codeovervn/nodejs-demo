@@ -1,0 +1,11 @@
+extends layout
+
+block content
+	h1= title
+	p Welcome to #{title}
+	div List Area
+	label #{users.id}
+	label #{users.name}
+	div
+		a(href="/") Back to Home page.
+	div Footer Area
